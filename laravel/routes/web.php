@@ -12,8 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+// Routing #2
+Route::get('/hero', 'HeroController@show');
+
+// Creating Pages
+Route::get('/hero/index', 'HeroController@index');
+
+Route::post('/hero/show', 'HeroController@show');
+
+// Forms
+Route::get('/hero/{$id}', 'HeroController@create');
+Route::post('/hero/{$id}', 'HeroController@store');
+Route::get('/hero/{$id}/display', 'heroController@display')
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionsTable extends Migration
+class CreateEmergenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('emergencies', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('hero_id')->nullable();
             $table->integer('user_id')->nullable();
-            $table->string('title', 255)->nullable();
-            $table->text('text')->nullable();
+            $table->string('subject', 255)->nullable();
+            $table->text('description')->nullable();
             $table->timestamps(); // creates created_at and updated_at
         });
     }
